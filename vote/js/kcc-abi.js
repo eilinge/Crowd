@@ -1,8 +1,6 @@
-var kccAbi = [
-	{
+var kccAbi = [{
 		"constant": false,
-		"inputs": [
-			{
+		"inputs": [{
 				"name": "_to",
 				"type": "address"
 			},
@@ -12,7 +10,10 @@ var kccAbi = [
 			}
 		],
 		"name": "airDrop",
-		"outputs": [],
+		"outputs": [{
+			"name": "success",
+			"type": "bool"
+		}],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -21,20 +22,17 @@ var kccAbi = [
 		"constant": true,
 		"inputs": [],
 		"name": "name",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
+		"outputs": [{
+			"name": "",
+			"type": "string"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
+		"inputs": [{
 				"name": "_spender",
 				"type": "address"
 			},
@@ -44,12 +42,10 @@ var kccAbi = [
 			}
 		],
 		"name": "approve",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
+		"outputs": [{
+			"name": "success",
+			"type": "bool"
+		}],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -58,20 +54,17 @@ var kccAbi = [
 		"constant": true,
 		"inputs": [],
 		"name": "totalSupply",
-		"outputs": [
-			{
-				"name": "totalSupply",
-				"type": "uint256"
-			}
-		],
+		"outputs": [{
+			"name": "totalsupply",
+			"type": "uint256"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
+		"inputs": [{
 				"name": "_from",
 				"type": "address"
 			},
@@ -85,31 +78,37 @@ var kccAbi = [
 			}
 		],
 		"name": "transferFrom",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
+		"outputs": [{
+			"name": "success",
+			"type": "bool"
+		}],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"constant": true,
-		"inputs": [
-			{
-				"name": "_owner",
-				"type": "address"
-			}
-		],
+		"inputs": [],
+		"name": "getAddress",
+		"outputs": [{
+			"name": "",
+			"type": "address"
+		}],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [{
+			"name": "_owner",
+			"type": "address"
+		}],
 		"name": "balanceOf",
-		"outputs": [
-			{
-				"name": "balance",
-				"type": "uint256"
-			}
-		],
+		"outputs": [{
+			"name": "balance",
+			"type": "uint256"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
@@ -118,34 +117,17 @@ var kccAbi = [
 		"constant": true,
 		"inputs": [],
 		"name": "symbol",
-		"outputs": [
-			{
-				"name": "",
-				"type": "string"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "getAddr",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
+		"outputs": [{
+			"name": "",
+			"type": "string"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": false,
-		"inputs": [
-			{
+		"inputs": [{
 				"name": "_to",
 				"type": "address"
 			},
@@ -155,20 +137,17 @@ var kccAbi = [
 			}
 		],
 		"name": "transfer",
-		"outputs": [
-			{
-				"name": "success",
-				"type": "bool"
-			}
-		],
+		"outputs": [{
+			"name": "success",
+			"type": "bool"
+		}],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
 		"constant": true,
-		"inputs": [
-			{
+		"inputs": [{
 				"name": "_owner",
 				"type": "address"
 			},
@@ -178,12 +157,10 @@ var kccAbi = [
 			}
 		],
 		"name": "allowance",
-		"outputs": [
-			{
-				"name": "remaining",
-				"type": "uint256"
-			}
-		],
+		"outputs": [{
+			"name": "remaining",
+			"type": "uint256"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
@@ -192,12 +169,10 @@ var kccAbi = [
 		"constant": true,
 		"inputs": [],
 		"name": "fundation",
-		"outputs": [
-			{
-				"name": "",
-				"type": "address"
-			}
-		],
+		"outputs": [{
+			"name": "",
+			"type": "address"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
@@ -206,19 +181,16 @@ var kccAbi = [
 		"constant": true,
 		"inputs": [],
 		"name": "totalAirDrop",
-		"outputs": [
-			{
-				"name": "",
-				"type": "uint256"
-			}
-		],
+		"outputs": [{
+			"name": "",
+			"type": "uint256"
+		}],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
+		"inputs": [{
 				"name": "totalSupply",
 				"type": "uint256"
 			},
@@ -233,8 +205,7 @@ var kccAbi = [
 	},
 	{
 		"anonymous": false,
-		"inputs": [
-			{
+		"inputs": [{
 				"indexed": true,
 				"name": "_from",
 				"type": "address"
@@ -255,8 +226,7 @@ var kccAbi = [
 	},
 	{
 		"anonymous": false,
-		"inputs": [
-			{
+		"inputs": [{
 				"indexed": true,
 				"name": "_owner",
 				"type": "address"
@@ -275,4 +245,4 @@ var kccAbi = [
 		"name": "Approval",
 		"type": "event"
 	}
-];
+]
