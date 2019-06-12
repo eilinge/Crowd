@@ -22,6 +22,7 @@ contract mvcCrowd {
     event onairDrop(address _addr, uint _acounnt);
     event onIsFinished();
     event onticketBooking();
+    event onCrowInfo(address _owner, uint _value, uint _id);
     
     constructor(address _owner, string _desc, uint _total) public {
         desc = _desc;
@@ -65,10 +66,15 @@ contract mvcCrowd {
         }
     }
     
-    function getBalance(address _owner) view public returns (uint _amount, uint _crTime) {
+    function CrowInfo(address _owner) view public returns (uint _amount, uint _crTime) {
         uint8 id = userId[_owner];
+        // 基金会余额为0 ?
+        if (id == 0 && _owner != owner) {
+            return (0, 0)
+        }
         _amount = info[id]._amount;
         _crTime = info[id]._crowdTime;
+        emit onCrowInfo(_owner, _amount, _crTime);
         return (_amount, _crTime);
     }
     
