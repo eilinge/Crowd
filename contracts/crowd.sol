@@ -8,7 +8,7 @@ contract crowdFunding {
     kccToken kcc;
     mvcCrowd mvc;
     
-    address owner;
+    address public owner;
     uint public kccUint; // 1000kcc -> 100mvc
     uint public mvcUint;
     

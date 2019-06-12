@@ -166,6 +166,33 @@ var kccAbi = [{
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [],
+		"name": "fee",
+		"outputs": [{
+			"name": "success",
+			"type": "bool"
+		}],
+		"payable": true,
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [{
+			"name": "",
+			"type": "address"
+		}],
+		"name": "feeUser",
+		"outputs": [{
+			"name": "",
+			"type": "uint256"
+		}],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"constant": true,
 		"inputs": [],
 		"name": "fundation",
