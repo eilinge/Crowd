@@ -1,29 +1,26 @@
 var crowdAbi = [{
-		"constant": false,
-		"inputs": [{
-				"name": "_spender",
+		"constant": true,
+		"inputs": [],
+		"name": "getAddress",
+		"outputs": [{
+				"name": "_kcc",
 				"type": "address"
 			},
 			{
-				"name": "_value",
-				"type": "uint256"
+				"name": "_mvc",
+				"type": "address"
 			}
 		],
-		"name": "approve",
-		"outputs": [{
-			"name": "success",
-			"type": "bool"
-		}],
 		"payable": false,
-		"stateMutability": "nonpayable",
+		"stateMutability": "view",
 		"type": "function"
 	},
 	{
 		"constant": true,
 		"inputs": [],
-		"name": "totalSupply",
+		"name": "kccUint",
 		"outputs": [{
-			"name": "totalsupply",
+			"name": "",
 			"type": "uint256"
 		}],
 		"payable": false,
@@ -31,38 +28,23 @@ var crowdAbi = [{
 		"type": "function"
 	},
 	{
-		"constant": false,
-		"inputs": [{
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"name": "_value",
-				"type": "uint256"
-			}
-		],
-		"name": "transferFrom",
-		"outputs": [{
-			"name": "success",
-			"type": "bool"
-		}],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"constant": true,
-		"inputs": [{
-			"name": "_owner",
+		"inputs": [],
+		"name": "owner",
+		"outputs": [{
+			"name": "",
 			"type": "address"
 		}],
-		"name": "balanceOf",
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "mvcUint",
 		"outputs": [{
-			"name": "balance",
+			"name": "",
 			"type": "uint256"
 		}],
 		"payable": false,
@@ -72,83 +54,32 @@ var crowdAbi = [{
 	{
 		"constant": false,
 		"inputs": [{
-				"name": "_to",
+				"name": "kccaddr",
 				"type": "address"
 			},
 			{
-				"name": "_value",
-				"type": "uint256"
+				"name": "mvcaddr",
+				"type": "address"
 			}
 		],
-		"name": "transfer",
-		"outputs": [{
-			"name": "success",
-			"type": "bool"
-		}],
+		"name": "setAddr",
+		"outputs": [],
 		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
-		"constant": true,
 		"inputs": [{
-				"name": "_owner",
-				"type": "address"
+				"name": "_kccUint",
+				"type": "uint256"
 			},
 			{
-				"name": "_spender",
-				"type": "address"
+				"name": "_mvcUint",
+				"type": "uint256"
 			}
 		],
-		"name": "allowance",
-		"outputs": [{
-			"name": "remaining",
-			"type": "uint256"
-		}],
 		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"anonymous": false,
-		"inputs": [{
-				"indexed": true,
-				"name": "_from",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "_to",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "_value",
-				"type": "uint256"
-			}
-		],
-		"name": "Transfer",
-		"type": "event"
-	},
-	{
-		"anonymous": false,
-		"inputs": [{
-				"indexed": true,
-				"name": "_owner",
-				"type": "address"
-			},
-			{
-				"indexed": true,
-				"name": "_spender",
-				"type": "address"
-			},
-			{
-				"indexed": false,
-				"name": "_value",
-				"type": "uint256"
-			}
-		],
-		"name": "Approval",
-		"type": "event"
+		"stateMutability": "nonpayable",
+		"type": "constructor"
 	}
 ]

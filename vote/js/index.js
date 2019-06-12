@@ -3,7 +3,7 @@ $(function(){
    web3.eth.getAccounts(function (e, r) {
       console.log(e, r);
    });
-   var contractAddr = "0x8169aaa3bdb0cc90c371935b3da15ce12677bd0a";
+   var contractAddr = "0xe3883a9499465c405c45878b804161f439f7f0c7";
    var instance = new web3.eth.Contract(crowdAbi, contractAddr);
    var owner;
    var acctAddr;
@@ -52,8 +52,9 @@ $(function(){
                if(!e){
                   console.log("fee success")
                   //4. 调用kcc->airDrop方法
-                  console.log(parseInt(weiNum) * 100)
-                  kccInstance.methods.airDrop(acctAddr, parseInt(weiNum) * 100).send({
+                  // console.log(parseInt(weiNum) * 100)
+                  // console.log(owner)
+                  kccInstance.methods.airDrop(acctAddr, parseInt(weiNum) * 10).send({
                      from: owner,
                      gas: 3000000
                   }, function (e, r) {
@@ -99,6 +100,5 @@ $(function(){
             alert("vote failed", e)
          }
       })
-      
    })
 })

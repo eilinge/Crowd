@@ -24,7 +24,7 @@ var mvcAbi = [{
 		"name": "userCount",
 		"outputs": [{
 			"name": "",
-			"type": "uint8"
+			"type": "uint16"
 		}],
 		"payable": false,
 		"stateMutability": "view",
@@ -75,7 +75,7 @@ var mvcAbi = [{
 		"name": "userId",
 		"outputs": [{
 			"name": "",
-			"type": "uint8"
+			"type": "uint16"
 		}],
 		"payable": false,
 		"stateMutability": "view",
@@ -143,6 +143,26 @@ var mvcAbi = [{
 	},
 	{
 		"constant": false,
+		"inputs": [{
+			"name": "_owner",
+			"type": "address"
+		}],
+		"name": "CrowInfo",
+		"outputs": [{
+				"name": "_amount",
+				"type": "uint256"
+			},
+			{
+				"name": "_crTime",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
 		"inputs": [],
 		"name": "ticketBooking",
 		"outputs": [{
@@ -161,26 +181,6 @@ var mvcAbi = [{
 			"name": "",
 			"type": "uint256"
 		}],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [{
-			"name": "_owner",
-			"type": "address"
-		}],
-		"name": "getBalance",
-		"outputs": [{
-				"name": "_amount",
-				"type": "uint256"
-			},
-			{
-				"name": "_crTime",
-				"type": "uint256"
-			}
-		],
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
@@ -245,6 +245,27 @@ var mvcAbi = [{
 		"anonymous": false,
 		"inputs": [],
 		"name": "onticketBooking",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
+				"indexed": false,
+				"name": "_owner",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "_value",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"name": "_id",
+				"type": "uint256"
+			}
+		],
+		"name": "onCrowInfo",
 		"type": "event"
 	}
 ]

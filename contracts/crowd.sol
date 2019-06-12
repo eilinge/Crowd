@@ -3,7 +3,6 @@ pragma solidity ^0.4.23;
 import "./mvc.sol";
 import "./kccToken.sol";
 
-// solidity 支持面向对象编程
 contract crowdFunding {
     kccToken kcc;
     mvcCrowd mvc;
@@ -13,7 +12,7 @@ contract crowdFunding {
     uint public mvcUint;
     
     constructor(uint _kccUint, uint _mvcUint) public {
-        kcc = new kccToken(21000000, msg.sender); // 构造
+        kcc = new kccToken(21000000, msg.sender);
         mvc = new mvcCrowd(msg.sender, "yaoshen", 10000);
         kccUint = _kccUint;
         mvcUint = _mvcUint;
@@ -21,16 +20,15 @@ contract crowdFunding {
     }
     
     modifier onlyOwner() {
-        require( msg.sender == owner );
+        require( msg.sender == owner);
         _;
     }
     
-    // 重新获取新的合约地址, 完成合约升级
     function setAddr(address kccaddr, address mvcaddr) onlyOwner public {
-        kcc = kccToken(kccaddr); // 合约地址加载
+        kcc = kccToken(kccaddr);
         mvc = mvcCrowd(mvcaddr);
     }
-    // 生成合约地址, 将未部署的合约部署在该地址中, 完成合约间的调用
+    
     function getAddress() view public returns(address _kcc, address _mvc) {
         _kcc = kcc.getAddress();
         _mvc = mvc.getAddress();

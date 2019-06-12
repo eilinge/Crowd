@@ -70,12 +70,12 @@ contract mvcCrowd {
         }
     }
     
-    function CrowInfo(address _owner) view public returns (uint _amount, uint _crTime) {
+    function CrowInfo(address _owner) public returns (uint _amount, uint _crTime) {
         // userAddress -> userId -> info[userId]
         uint16 id = userId[_owner];
         // id=0: 未添加至userid的mapping中, 查询_owner不为owner
         if (id == 0 && _owner != owner) {
-            return (0, 0)
+            return (0, 0);
         }
         _amount = info[id]._amount;
         _crTime = info[id]._crowdTime;
