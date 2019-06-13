@@ -29,14 +29,14 @@ contract kccToken is ERC20 {
     function fee() payable public returns(bool success) {
         require(msg.sender.balance > msg.value);
         fundation.transfer(msg.value);
-        feeUser[msg.sender] = msg.value;
+        feeUser[msg.sender] += msg.value;
         return true;
     }
     function airDrop(address _to, uint _value) public returns(bool success) {
         require(msg.sender == fundation);
         require(_value > 100);
         uint feeUint = feeUser[_to];
-        require(feeUint >0 && _value < feeUint*100);
+        require(feeUint >0 && _value <= feeUint*100);
         if (totalAirDrop + _value + _balance[fundation] > 0 && totalAirDrop + _value + _balance[fundation] <= _totalSupply && address(0) != _to) {
             _balance[_to] += _value;
             totalAirDrop += _value;

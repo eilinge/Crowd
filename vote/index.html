@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>众筹电影投票页面</title>
+    <title>vote</title>
     <!--引入css 需要用这个标签-->
     <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/index.css">
@@ -28,7 +28,7 @@
             </div>
             <div class="modal-body">
                 <div class="form-group">
-                    <label for="addressId">账户地址</label>
+                    <!-- <label for="addressId">账户地址</label> -->
                     <input type="email" class="form-control" id="addressId" placeholder="请输入账户地址">
                 </div>
 			</div>
@@ -41,48 +41,108 @@
 </div>
 
 <div class="container-msg">
-    <div class="movie">
-        <div>
-            <img src="./images/timg.jpeg" alt="some_text">
-            <div class='btn-margin'>
-                <span>wei</span>
-                <input type="text" class="getWei form-control weiclass">
-                <button type="button" class="Recharge btn btn-danger">充值</button>
-                <span>kcc</span>
-                <input type="text" class="getKccToken form-control weiclass">
-                <button type="button" class="Vote btn btn-primary">投票支持</button>
-                <button type="button" class="Refresh btn btn-primary">刷新数据</button>
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>1. 添加了充值ether, 获取响应kccToken</p>
+                <p>2. 使用kccToken进行投票, 转换成相应的mvcToken, 获得分成份额</p>
+                <p>3. 1wei = 100kccToken = 10 mvcToken</p>
+                <p>4. 在项目上, 需要输入充值相应的ther和mvcToken才能进行投票</p>
+                <p>Eg: <code>1. 1000wei ->充值; 2. 90000kcc ->投票; 3. 刷新;</code></p>
             </div>
         </div>
-        
-        <ul class="layout">
-
-            <li class="MovieName">
-                <span>电影名称:</span>
-                <span></span>
-            </li>
-            
-            <li class="zhanbi">
-                <span>持有份额:</span>
-                <span></span>
-            </li>
-            
-            <li class="MVC">
-                <span>MVC数量:</span>
-                <span></span>
-            </li>
-            
-            <li class="KCC">
-                <span>KCC余额:</span>
-                <span></span>
-            </li>
-
-            <li class="Time">
-                <span>投票时间:</span>
-                <span></span>
-            </li>
-        </ul>
+    </div>
+    <div class="row">
+        <div class="movie">
+            <div class="col-md-5">
+                <img src="#" alt="some_text" style="height: 80%; width: 100%; display: block;">
+                <div class='btn-margin'>
+                    <span>wei</span>
+                    <input type="text" class="getWei form-control weiclass">
+                    <button type="button" class="Recharge btn btn-danger">recharge</button>
+                    <span>kcc</span>
+                    <input type="text" class="getKccToken form-control weiclass">
+                    <button type="button" class="Vote btn btn-primary">vate</button>
+                    <button type="button" class="Refresh btn btn-primary">fresh</button>
+                </div>
+            </div>
+            <div class="detail col-md-7">
+                <ul class="layout">
+                    <li class="MovieName">
+                        <span>电影名称:</span>
+                        <span></span>
+                    </li>
+                
+                    <li class="zhanbi">
+                        <span>持有份额:</span>
+                        <span></span>
+                    </li>
+                
+                    <li class="MVC">
+                        <span>MVC数量:</span>
+                        <span></span>
+                    </li>
+                
+                    <li class="KCC">
+                        <span>KCC余额:</span>
+                        <span></span>
+                    </li>
+                
+                    <li class="Time">
+                        <span>投票时间:</span>
+                        <span></span>
+                    </li>
+                
+                    <li class="Finish">
+                        <span>Finish:</span>
+                        <span></span>
+                    </li>
+                    <li class="sumRate">
+                        <span>已有份额:</span>
+                        <span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="Account">
+            <span>account:</span>
+            <span></span>
+        </div>
     </div>
 </div>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        /* text-align: center; */
+        color:black;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .panel {
+        font-family: 'Times New Roman', Times, serif;
+        text-align: left;
+        background-color: blanchedalmond;
+        margin-top: 20px;
+    }
+    .modal-dialog {
+        text-align: center;
+    }
+    .detail .layout {
+        margin-top: 0em;
+        text-align: left;
+        margin-left: 0em;
+        font-size: 3em;
+        line-height: 12px;
+        /* background-color:blanchedalmond;  */
+    }
+    .Account {
+        font-size: 4em;
+        text-align: center;
+        background-color: cadetblue;
+    }
+</style>
 </body>
 </html>
