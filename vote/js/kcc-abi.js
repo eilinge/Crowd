@@ -233,6 +233,22 @@ var kccAbi = [{
 	{
 		"anonymous": false,
 		"inputs": [{
+				"indexed": false,
+				"name": "_addr",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "_num",
+				"type": "uint256"
+			}
+		],
+		"name": "onAirDrop",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [{
 				"indexed": true,
 				"name": "_from",
 				"type": "address"

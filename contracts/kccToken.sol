@@ -15,6 +15,8 @@ contract kccToken is ERC20 {
     mapping(address=>mapping(address=>uint)) _allowance; // 授权余额
     mapping(address=>uint) public feeUser;  // 1 wei = 100kcc
     
+    event onAirDrop(address _addr, uint _num);
+    
     constructor(uint totalSupply, address _owner) public {
         _totalSupply = totalSupply;
         fundation = _owner;
@@ -28,6 +30,7 @@ contract kccToken is ERC20 {
     // 进行分配kccToken之前, 需要收取一些手续费
     function fee() payable public returns(bool success) {
         require(msg.sender.balance > msg.value);
+        require(msg.value >= 100 );
         fundation.transfer(msg.value);
         feeUser[msg.sender] += msg.value;
         return true;
@@ -41,6 +44,7 @@ contract kccToken is ERC20 {
             _balance[_to] += _value;
             totalAirDrop += _value;
             feeUser[_to] -= _value / 100;
+            emit onAirDrop(_to, _value);
             return true;
         } else {
             return false;

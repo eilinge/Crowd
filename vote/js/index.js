@@ -3,7 +3,7 @@ $(function(){
    web3.eth.getAccounts(function (e, r) {
       console.log(e, r);
    });
-   var contractAddr = "0x48b338424e62bd094a2ef2cc6845f659e0c8d5d4";
+   var contractAddr = "0xd62ea51ab7f3e66322affef9cae2975c96ff9908";
    var instance = new web3.eth.Contract(crowdAbi, contractAddr);
    var owner;
    var acctAddr;
@@ -60,20 +60,37 @@ $(function(){
                      gas: 3000000
                   }, function (e, r) {
                      if (!e) {
-                        console.log(weiNum * 10);
-                        alert("Recharge success");
-                     } else {
-                        alert("Recharge failed: "+ e);
-                     }
-                  });
-               } else {
-                  console.log("fee failed", e);
-               }
-            });
-         } else {
-            console.log("recharge failed", e);
-         }
-      });
+                        web3.eth.getBlockNumber(function(e, r){
+                           if(!e){
+                              var block = r;
+                              console.log(block);
+                              kccInstance.getPastEvents('allEvents', {
+                                    filter: {},
+                                    fromBlock: block,
+                                    // toBlock: 'latest'
+                                 }, function (error, events) {
+                                    if (!error){
+                                       if (events[0].event == "onAirDrop") {
+                                          alert("Recharge success");
+                                       } else {
+                                          console.log("Recharge failed: " + error)
+                                       }
+                                    } else {
+                                       console.log(error);
+                                    }
+                                 });
+                           } else {
+                              alert("Recharge failed: "+ e);
+                           }
+                        });
+                     };
+                     })
+                  } else {
+                     console.log("fee failed");
+                  }
+               });
+            }
+         });
    });
    // 投票: 1000kcc转换成100mvc(众筹的份额)
    $(".Vote").on("click", function(){
@@ -92,11 +109,30 @@ $(function(){
                from: owner,
                gas: 3000000
             }, function(e, r){
-               console.log(e, r);
                if(!e) {
-                  alert("vote success");
-               } else {
-                  alert("vote failed");
+                  web3.eth.getBlockNumber(function (e, r) {
+                     if (!e) {
+                        var block = r;
+                        mvcInstance.getPastEvents('allEvents', {
+                           filter: {},
+                           fromBlock: block,
+                           // toBlock: 'latest'
+                        }, function (error, events) {
+                           if (!error) {
+                              console.log(events)
+                              if (events[0].event == "onairDrop") {
+                                 alert("vote success");
+                              } else {
+                                 console.log("vote failed: " + error)
+                              }
+                           } else {
+                              console.log(error);
+                           }
+                        });
+                     } else {
+                        alert("Recharge failed: " + e);
+                     }
+                  });
                }
             });
          } else {
@@ -137,7 +173,7 @@ $(function(){
                   mvcInstance.methods.totalCrowd().call(function(e, r){
                      if(!e) {
                         var sumRate = r / mvcTotalSupply * 100;
-                        $(".sumRate").children(":eq(1)").text(sumRate + "%");
+                        $(".sumRate").children(":eq(1)").text(sumRate.toFixed(2) + "%");
                      }
                   });
                }

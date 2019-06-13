@@ -3,7 +3,7 @@ $(function () {
    web3.eth.getAccounts(function (e, r) {
       console.log(e, r);
    });
-   var contractAddr = "0xca8c928b2b7f2b2ac662ff01e98338f0534735c2";
+   var contractAddr = "0xd62ea51ab7f3e66322affef9cae2975c96ff9908";
    var instance = new web3.eth.Contract(crowdAbi, contractAddr);
    var owner;
    var acctAddr;
